@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <meta http-equiv="Cache-control" content="public">
+    <title>HDMI Matrix Selector</title></head>
+    <script src="LightStrip.js"></script>
+    <style>
+      .selected {
+        padding: 5px;
+        background-color: aqua;
+      }
+      .device {
+        float: left;
+      }
+      .device img {
+        height: 92%;
+      }
+      .device div {
+        text-align: center;
+      }
+    </style>
+  <body>
+    <button onclick="setMode('chaser')">Chaser</button>
+    <button onclick="setMode('knightRider')">Knight Rider</button>
+    <button onclick="setMode('history')">History</button>
+    <button onclick="setMode('reset')">Off</button>
+    <h1>Colors</h1>
+    <button onclick="setColor('red')">Red</button>
+    <button onclick="setColor('green')">Green</button>
+    <button onclick="setColor('blue')">Blue</button>
+    <button onclick="setColor('white')">White</button>
+    <button onclick="setColor('black')">Black</button>
+  </body>
+</html>
