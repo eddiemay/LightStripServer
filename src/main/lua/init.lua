@@ -1,5 +1,6 @@
 wifi.setmode(wifi.STATIONAP)
-wifi.ap.config({ ssid = "HDMI-MATRIX", pwd = "12345678" })
---wifi.sta.config("Mayfield-Wifi", "mayfield")
+wifi.ap.config({ ssid = "Light-Strip", pwd = "12345678" })
+-- wifi.sta.config("Mayfield-Wifi", "mayfield")
 dofile("Bootstrap.lua")
 dofile("LightStripServer.lua")
+-- dofile("MotorServer.lua")
