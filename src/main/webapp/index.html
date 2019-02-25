@@ -1,7 +1,7 @@
 <html>
   <head>
     <meta http-equiv="Cache-control" content="public">
-    <title>HDMI Matrix Selector</title></head>
+    <title>Lightstrip Server</title></head>
     <script src="LightStrip.js"></script>
     <style>
       .selected {
@@ -19,17 +19,19 @@
       }
     </style>
   <body>
-    <button onclick="setMode('chaser')">Chaser</button>
-    <button onclick="setMode('knightRider')">Knight Rider</button>
-    <button onclick="setMode('history')">History</button>
-    <button onclick="setMode('reset')">Off</button>
-    <h1>Colors</h1>
-    <button onclick="setColor('red')">Red</button>
-    <button onclick="setColor('green')">Green</button>
-    <button onclick="setColor('blue')">Blue</button>
-    <button onclick="setColor('white')">White</button>
-    <button onclick="setColor('black')">Black</button>
+    <h1>Modes</h1>
+    <select id="modes" size="11" onchange="setSelected()"></select>
+    <input type="text" id="name"/>
+    <textarea id="code" rows="12" cols="80"></textarea>
+    <button onclick="updateMode()">Save Changes</button>
+    <button onclick="setActiveMode()">Set Active</button>
+    <button onclick="reset()">Off</button>
     <hr>
+    <h1>Colors</h1>
+    <input type="color" id="html5colorpicker" value="#0000ff" style="width:50%;">
+    <button onclick="setColor()">Set Color</button>
+    <hr>
+    <h1>Motor</h1>
     <button onclick="startMotor()">Start Motor</button>
     <button onclick="stopMotor()">Stop Motor</button>
   </body>

@@ -1,6 +1,10 @@
+local DIRECTION = {
+  CLOCK_WISE = -1,
+  COUNTER_CLOSE_WISE = 1
+}
 local motorPinStates = {{0, 0, 0, 1}, {0, 0, 1, 1}, {0, 0, 1, 0}, {0, 1, 1, 0}, {0, 1, 0, 0}, {1, 1, 0, 0}, {1, 0, 0, 0}, {1, 0, 0, 0}}
 local motorTimer = tmr.create();
-local motor = {pins = {0, 1, 2, 3}, speed = 500}
+local motor = {pins = {0, 1, 2, 3}, speed = 500, direction = DIRECTION.COUNTER_CLOSE_WISE}
 
 local writeMotor = function(motorState)
   local motorPinState = motorPinStates[motorState + 1]
@@ -29,7 +33,7 @@ return {
     end
     motorTimer:register(1000 / motor.speed, tmr.ALARM_AUTO, function()
       writeMotor(motorState)
-      motorState = (motorState + 1) % #motorPinStates
+      motorState = (motorState + motor.direction) % #motorPinStates
     end)
     motorTimer:start()
     return {}
